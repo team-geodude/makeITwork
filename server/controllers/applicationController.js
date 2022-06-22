@@ -4,8 +4,9 @@ const applicationController = {};
 
 
 applicationController.getApplications = (req, res, next) => {
-  const {userid} = req.body;
-  const query = 
+  
+  const userid = req.query.userid;
+  const q = 
   `SELECT a.*, u.userid, u.username, r.*, j.*, c.*
   FROM applications a inner join users u on a.userid = u.userid
   inner join jobs j on a.jobid = j.jobid
@@ -13,7 +14,7 @@ applicationController.getApplications = (req, res, next) => {
   inner join companies c on j.companyid = c.companyid   
   WHERE u.userid = '${userid}'
   ORDER BY a.applicationid` 
-  db.query(query)
+  db.query(q)
   .then(data =>{
     res.locals.applications = data.rows;
     return next();
@@ -231,7 +232,7 @@ applicationController.updateResume = (req, res, next) => {
   }
 
   applicationController.getStageResult = (req, res, next) => {
-    const {userid} = req.body;
+    const userid = req.query.userid;
     const query = 
     `with tb as (
       SELECT 'k' as K, COUNT(*) AS total_count

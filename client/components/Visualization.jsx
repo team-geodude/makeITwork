@@ -4,9 +4,7 @@ import { PieChart } from 'react-minimal-pie-chart';
 
 
 export default function Visualization(props) {
-  const [rows, setRows] = useState([]);
 
-  const colors = ['#E38627', '#C13C37' ,  '#6A2135',   ];
   
   useEffect(()=>{
     const userid = 35;
@@ -14,7 +12,7 @@ export default function Visualization(props) {
     .then(res => res.json())
     .then(data => {
       console.log('receved data from server', JSON.stringify(data));
-      setRows(data);
+  
     })
     .catch(err => console.log(err));
   },[])
@@ -39,11 +37,11 @@ export default function Visualization(props) {
 //   }
 // ]
 
-  <PieChart
-  data={[
-    { title: 'One', value: 10, color: '#E38627' },
-    { title: 'Two', value: 15, color: '#C13C37' },
-    { title: 'Three', value: 20, color: '#6A2135' },
-  ]}
-/>;
+//   <PieChart
+//   data={{[
+//     { title: 'One', value: 10, color: '#E38627' },
+//     { title: 'Two', value: 15, color: '#C13C37' },
+//     { title: 'Three', value: 20, color: '#6A2135' }
+//   ]}}
+// />;
 }

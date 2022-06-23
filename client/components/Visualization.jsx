@@ -35,13 +35,14 @@ export default function Visualization(props) {
     // <PieChart width={700} height={700}>
     //   {/* <Pie data={{stage}} dataKey="stage" outerRadius={250} fill="green" /> */}
     // </PieChart>
+    <div className='pieContainer' style={{display:'flex', justifyContent:'center'}}>
     <PieChart 
     animate
               animationDuration={500}
               animationEasing="ease-out"
               center={[50, 50]}
               
-    style={{width:'40%', alignSelf:'center'}} label={(data) => data.dataEntry.title} labelStyle={{fontSize:'5px', alignItems:'center'}}
+    style={{marginTop:'3%', width:'30%', alignSelf:'center'}} label={(data) => data.dataEntry.title} labelStyle={{fontSize:'5px', alignItems:'center'}}
       // data={[
       //   { title: 'In Process', value: 3, color: '#fb8500' },
       //   { title: 'No Offer', value: 1, color: '#ffb703' },
@@ -49,6 +50,7 @@ export default function Visualization(props) {
       // ]}
       data={data}
     />
+    </div>
   );  
 }
 

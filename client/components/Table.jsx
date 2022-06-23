@@ -17,7 +17,7 @@ export default function BasicTable(props) {
   const [rows, setRows] = useState([]);
 
   useEffect(()=>{
-    const userid = 35;
+    const userid = 47;
     fetch(`/app/getApp?userid=${userid}`)
     .then(res => res.json())
     .then(data => {
@@ -41,7 +41,7 @@ console.log("rows", rows);
             <TableCell align="right">Interest</TableCell>
             <TableCell align="right">Interview Questions</TableCell>
             <TableCell align="right">Modified Date</TableCell>
-            <TableCell align="right">UserID</TableCell>
+            {/* <TableCell align="right">UserID</TableCell> */}
             <TableCell align="right">JobID</TableCell>
             <TableCell align="right">ResumeID</TableCell>
             <TableCell align="right">User Name</TableCell>
@@ -74,7 +74,7 @@ console.log("rows", rows);
               <TableCell align="right">{row.interest}</TableCell>
               <TableCell align="right">{row.interviewquestions}</TableCell>
               <TableCell align="right">{row.modifieddate}</TableCell>
-              <TableCell align="right">{row.userid}</TableCell>
+              {/* <TableCell align="right">{row.userid}</TableCell> */}
               <TableCell align="right">{row.jobid}</TableCell>
               <TableCell align="right">{row.resumeid}</TableCell>
               <TableCell align="right">{row.username}</TableCell>
